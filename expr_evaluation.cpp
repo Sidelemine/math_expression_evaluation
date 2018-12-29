@@ -35,7 +35,7 @@ end if;
     cpar=c+k;                                     }end if;
 
   
-  while((*cpar==')')&(*(cpar+1)==')')) cpar++; //in case we have many of them succesivly
+  while((*cpar==')')&(*(cpar+1)==')')) cpar++; //in case we have many closed parenthesis succesivly
   
  int nn=cpar-expr;//the length of the first part of the array that has been treated
   result=calc(result,*(cpar+1),evaluate(cpar+2,n-nn+1);
