@@ -4,9 +4,7 @@ int evaluate(char* expr,int n)
     int result=0;
     if (n==0) return 0;//to stop at the end of the string
     end if;
-    if(*expr=='(')
     while(*expr=='(')expr++; //we move on until we get the first operand
-    end if; 
           char* a=expr;              
           int i,j,k;
           i=j=k=0;
@@ -36,9 +34,9 @@ else{                //when we dont have any priority issues
 end if;
     cpar=c+k;                                     }end if;
 
-  if((*cpar==')')&(*(cpar+1)==')')) 
+  
   while((*cpar==')')&(*(cpar+1)==')')) cpar++; //in case we have many of them succesivly
-  end if;
+  
  int nn=cpar-expr;//the length of the first part of the array that has been treated
   result=calc(result,*(cpar+1),evaluate(cpar+2,n-nn+1);
   end if;
