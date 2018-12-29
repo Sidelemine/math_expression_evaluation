@@ -32,7 +32,7 @@ else{                //when we dont have any priority issues
 }
 end if;
  }
-  end if;
+end if;               
  char* par= c+k;// a pointer to the first closed parenthesis
  int cpt=0;
   while((*par==')')&(*(par+1)==')')) 
@@ -41,7 +41,7 @@ end if;
  cpt=c+k+cpt;
  int nn=expr-cpt;//the length of the rest of the array that still need to be evaluated
   result=calc(result,*(par+1),evaluate(par+2,n-nn+1);
-  end if;
+
   return result;
 
 
