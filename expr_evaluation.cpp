@@ -4,9 +4,9 @@ int evaluate(char* expr,int n)
     int result=0;
     if (n==0) return 0;//to stop at the end of the string
     end if;
-    if(*expr=='(')  //
-                 result=evaluate(expr+1,n-1);//we move on until i get the first operand
-    else {
+    if(*expr=='(')
+    while(*expr=='(')expr++; //we move on until we get the first operand
+    end if; 
           char* a=expr;              
           int i,j,k;
           i=j=k=0;
@@ -17,31 +17,31 @@ int evaluate(char* expr,int n)
           char* b=op1+1; // we should now get the second operand the same idea fas in a 
           j=get_length(b);
           int nb=to_integer(b,j);// the second operand
-          char* op2=b+j;// the second operator
+          char* cpar=b+j;// a pointer to the first closed parenthesis
+          char* op2=b+j;// but we verify first if it is the second operator
+          if (*op2==('+'||'-'||'*'||'/')){
           char* c=op2+1;
           k=get_length(c);
           int nc=to_integer(c,k); //the third operand
 if(*op2==('*'||'/')){ //chaeck for priority between op1 and op2
 int diff1 =b-a;// we need for the length of remainig part of the array
-   result=calc(na,*op1,evaluate(b,n-diff+1);} //in this case we start the evalution with op2
+   result=calc(na,*op1,evaluate(b,n-diff+1);
+                     } //in this case we start the evalution with op2
                                 //calc is a methode thar can do a mathematical operation
 else{                //when we dont have any priority issues
   int diff2=c-a;// we need for the length of remainig part of the array
  int temp =calc(na,*op1,nb); //we evalute the first two numbers
    result=calc(temp,*op2,evaluate(c,diff2+1); //then we move on 
-}
+    }
 end if;
- }
-end if;               
- char* par= c+k;// a pointer to the first closed parenthesis
- int cpt=0;
-  while((*par==')')&(*(par+1)==')')) 
- {par++; //in case we have many of them succesivly
-  cpt++;} // a counter to keep tracking our position in the array
- cpt=c+k+cpt;
- int nn=expr-cpt;//the length of the rest of the array that still need to be evaluated
-  result=calc(result,*(par+1),evaluate(par+2,n-nn+1);
+    cpar=c+k;                                     }end if;
 
+  if((*cpar==')')&(*(cpar+1)==')')) 
+  while((*cpar==')')&(*(cpar+1)==')')) cpar++; //in case we have many of them succesivly
+  end if;
+ int nn=cpar-expr;//the length of the first part of the array that has been treated
+  result=calc(result,*(cpar+1),evaluate(cpar+2,n-nn+1);
+  end if;
   return result;
 
 
