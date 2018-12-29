@@ -16,7 +16,7 @@ int evaluate(char* expr,int n)
           j=get_length(b);
           int nb=to_integer(b,j);// the second operand
           char* cpar=b+j;// a pointer to the first closed parenthesis
-          char* op2=b+j;// but we verify first if it is the second operator
+          char* op2=b+j;// but we verify first if it is not the second operator
           if (*op2==('+'||'-'||'*'||'/')){
           char* c=op2+1;
           k=get_length(c);
@@ -32,7 +32,9 @@ else{                //when we dont have any priority issues
    result=calc(temp,*op2,evaluate(c,diff2+1); //then we move on 
     }
 end if;
-    cpar=c+k;                                     }end if;
+    cpar=c+k;         }
+ else result=calc(na,*op1,nb);
+ end if;
 
   
   while((*cpar==')')&(*(cpar+1)==')')) cpar++; //in case we have many closed parenthesis succesivly
@@ -41,6 +43,7 @@ end if;
   result=calc(result,*(cpar+1),evaluate(cpar+2,n-nn+1);
   end if;
   return result;
+  }
 
 
   int get_length(char* num){
