@@ -1,5 +1,5 @@
 //i suppose i haave a correct mathematical expression with no spaces between characters
-int evaluate(char* expr,int n)
+int evaluate(char* expr,int n)  //n represents how many strings in the string
 {
     int result=0;
     if (n==0) return 0;//to stop at the end of the string
@@ -10,7 +10,7 @@ int evaluate(char* expr,int n)
           i=j=k=0;
           i=get_length(a);// a simple methode that can know how many digit are in the first operand
           int na=to_integer(a,i);//anothor simple methode that convert 
-                                //an array of digits into a decimal number
+                                //an array of digits characters into a an integer
           char* op1=a+i; //a pointer to the first operator
           char* b=op1+1; // we should now get the second operand the same idea fas in a 
           j=get_length(b);
@@ -21,7 +21,7 @@ int evaluate(char* expr,int n)
           char* c=op2+1;
           k=get_length(c);
           int nc=to_integer(c,k); //the third operand
-if(*op2==('*'||'/')){ //chaeck for priority between op1 and op2
+if(*op2==('*'||'/')){ //check for priority between op1 and op2
 int diff1 =b-a;// we need for the length of remainig part of the array
    result=calc(na,*op1,evaluate(b,n-diff+1);
                      } //in this case we start the evalution with op2
@@ -37,10 +37,10 @@ end if;
  end if;
 
   
-  while((*cpar==')')&(*(cpar+1)==')')) cpar++; //in case we have many closed parenthesis succesivly
+  while((*cpar==')')&(*(cpar+1)==')')) cpar++; //in case we have many closed parenthesis successivly
   
  int nn=cpar-expr;//the length of the first part of the array that has been treated
-  result=calc(result,*(cpar+1),evaluate(cpar+2,n-nn+1);
+  result=calc(result,*(cpar+1),evaluate(cpar+2,n-nn+1);//n-nn the length of remaining of the string
   end if;
   return result;
   }
@@ -49,7 +49,7 @@ end if;
   int get_length(char* num){
     int length=0
 
-    while(*num=='0'||*num=='1'||*num=='2'||*num=='3'||*num=='4'||*num=='5'||*num=='6'||*num=='7'||*num=='8'||*num=='9')
+    while(*num=='0'||*num=='1'||*num=='2'||*num=='3'||*num=='4'||*num=='5'||*num=='6'||*num=='7'||*num=='8'||*num=='9'){
     num++;
     length++;
   }
@@ -57,7 +57,7 @@ end if;
   int to_integer)(char* a, int l)
   {
     int num=0;
-    for (int i=l; i>0;i+--)
+    for (int i=l; i>0;i--){
       num=num + (int)a[i]*power(10,i-1);
     return num;
   }
